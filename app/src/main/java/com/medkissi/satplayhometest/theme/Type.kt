@@ -1,4 +1,4 @@
-package com.medkissi.satplayhometest.ui.theme
+package com.medkissi.satplayhometest.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
