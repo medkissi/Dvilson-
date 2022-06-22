@@ -1,9 +1,11 @@
 package com.medkissi.satplayhometest.data.remote
 
+import com.medkissi.satplayhometest.data.model.ApiResponse
 import com.medkissi.satplayhometest.data.model.Feed
+import retrofit2.http.GET
 
 interface ApIService {
-
-    suspend fun getAlbum():Feed
+    @GET("topalbums/limit=100/json")
+    suspend fun getAlbum():ApiResponse
 
 }
