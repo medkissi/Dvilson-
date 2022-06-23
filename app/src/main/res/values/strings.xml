@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SatPlay Home Test</string>
+    <string name="error_message">\"Something went wrong while trying to fetch data from network check your internet connection and try again \"</string>
 </resources>

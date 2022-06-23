@@ -1,4 +1,4 @@
-package com.medkissi.satplayhometest.theme
+package com.medkissi.satplayhometest.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
