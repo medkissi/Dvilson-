@@ -26,8 +26,6 @@ object NetworkModule {
 
 
 
-
-
     @Singleton
     @Provides
     fun provideOkHttpClient(

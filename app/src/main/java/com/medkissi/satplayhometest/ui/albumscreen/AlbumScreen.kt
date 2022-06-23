@@ -1,17 +1,21 @@
-package com.medkissi.satplayhometest.ui.presentation
+package com.medkissi.satplayhometest.ui.albumscreen
 
-import android.widget.GridLayout
-import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
@@ -26,6 +30,7 @@ import com.medkissi.satplayhometest.data.model.Title
 
 private const val TAG = "AlbumScreen"
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun AlbumScreen(viewModel: AlbumViewModel = hiltViewModel()) {
     val state = viewModel.state.value
@@ -61,7 +66,7 @@ fun AlbumScreen(viewModel: AlbumViewModel = hiltViewModel()) {
                         searchText, ignoreCase = true
                     )
                 }, key = { it.id.attributes.imId }) { album ->
-                    AlbumItem(item = album)
+                    AlbumItem(item = album, modifier = Modifier.animateItemPlacement())
 
                 }
 
@@ -74,11 +79,13 @@ fun AlbumScreen(viewModel: AlbumViewModel = hiltViewModel()) {
 }
 
 @Composable
-fun AlbumItem(item: Entry) {
+fun AlbumItem(item: Entry,modifier:Modifier) {
+
+
     Card(
 
         elevation = 4.dp,
-        modifier = Modifier.padding(8.dp)
+        modifier = modifier.padding(8.dp)
 
     ) {
 
@@ -97,6 +104,7 @@ fun AlbumItem(item: Entry) {
                     .weight(0.70f)
                     .alignByBaseline()
             )
+
 
         }
 
@@ -141,7 +149,7 @@ fun AlbumImage(label: String, modifier: Modifier) {
         contentDescription = "album image",
         contentScale = ContentScale.Crop,
         modifier = modifier
-            .size(130.dp)
+            .size(120.dp)
             .clip(MaterialTheme.shapes.medium)
     )
 
@@ -160,10 +168,13 @@ fun SearchBar(modifier: Modifier, state: MutableState<TextFieldValue>) {
         colors = TextFieldDefaults.textFieldColors(
             backgroundColor = MaterialTheme.colors.surface
         ),
+        singleLine = true,
         modifier = modifier
             .heightIn(56.dp)
             .fillMaxWidth()
 
     )
 
+
 }
+

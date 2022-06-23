@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.medkissi.satplayhometest.ui.presentation.AlbumScreen
+import com.medkissi.satplayhometest.ui.albumscreen.AlbumScreen
 import com.medkissi.satplayhometest.ui.theme.SatPlayHomeTestTheme
 import dagger.hilt.android.AndroidEntryPoint
 

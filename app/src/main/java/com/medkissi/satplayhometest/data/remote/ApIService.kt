@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface ApIService {
     @GET("topalbums/limit=100/json")
-    suspend fun getAlbum():ApiResponse
+    suspend fun getAlbums():ApiResponse
 
 }

@@ -1,7 +1,8 @@
-package com.medkissi.satplayhometest.ui.presentation
+package com.medkissi.satplayhometest.ui.albumscreen
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.medkissi.satplayhometest.data.repository.AlbumRepository
@@ -11,7 +12,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AlbumViewModel @Inject constructor(private val repository: AlbumRepository):ViewModel(){
+class AlbumViewModel @Inject constructor(
+    private val repository: AlbumRepository,
+    private val stateHandle: SavedStateHandle
+):ViewModel(){
 
 
     private val _state = mutableStateOf(AlbumScreenState(listOf(),isLoading = true))
@@ -40,4 +44,6 @@ class AlbumViewModel @Inject constructor(private val repository: AlbumRepository
         }
 
     }
+
+
 }
